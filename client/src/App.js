@@ -4,25 +4,22 @@ import Navbar from "./components/navbar";
 import "./reser.css";
 import Login from "./pages/auth/login/index";
 import Register from "./pages/auth/register/index";
+import Products from "./pages/products/index";
 
 function App() {
   return (
     <div className="App">
       <Router>
         <Navbar />
-        <div id="context"></div>
-        <Switch>
-          <Route path={"/"} exact component={about} />
-          <Route path="/login" component={Login} />
-          <Route path="/register" component={Register} />
-        </Switch>
+        <div id="content">
+          <Switch>
+            <Route path={"/"} exact component={Products} />
+            <Route path="/login" component={Login} />
+            <Route path="/register" component={Register} />
+          </Switch>
+        </div>
       </Router>
     </div>
   );
 }
-
-function about() {
-  return <h1>About</h1>;
-}
-
 export default App;
