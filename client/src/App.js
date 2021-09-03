@@ -5,6 +5,7 @@ import "./reser.css";
 import Login from "./pages/auth/login/index";
 import Register from "./pages/auth/register/index";
 import Products from "./pages/products/index";
+import ProductDetail from "./pages/product-detail/ProductDetail";
 
 function App() {
   return (
@@ -14,6 +15,11 @@ function App() {
         <div id="content">
           <Switch>
             <Route path={"/"} exact component={Products} />
+            <Route
+              path={"/product/:product_id"}
+              exact
+              component={ProductDetail}
+            />
             <Route path="/login" component={Login} />
             <Route path="/register" component={Register} />
           </Switch>

@@ -8,7 +8,7 @@ export default function Navbar() {
   return (
     <nav className={styles.nav}>
       <div className={styles.left}>
-        <Link to="/">Bewerly Store</Link>
+        <Link to="/" className={styles.logo}>Bewerly Store</Link>
         <ul className={styles.menu}>
           <li>
             <Link style={{marginTop: '-2px'}} to="/">Tüm ürünler</Link>

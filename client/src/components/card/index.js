@@ -7,7 +7,7 @@ export default function Card({ item }) {
 
   return (
     <Box maxW="sm" borderWidth="1px" borderRadius="lg" overflow="hidden" p="3" m="3">
-      <Link to="#/">
+      <Link to={`/product/${item.id}`}>
         <Image src={item.image} alt="product" width="500px" height="350px" />
         <Box p="6">
           <Box d="flex" alignItems="baseline">
