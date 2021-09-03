@@ -1,7 +1,7 @@
 import { Grid, Button } from "@chakra-ui/react";
 import React from "react";
 import Card from "../../components/card";
-import { useInfiniteQuery, useQuery } from "react-query";
+import { useInfiniteQuery } from "react-query";
 import { fetchProductList } from "../../Api";
 
 export default function Products() {
@@ -13,7 +13,6 @@ export default function Products() {
     hasNextPage,
     isFetching,
     isFetchingNextPage,
-    status,
   } = useInfiniteQuery("products", fetchProductList, {
     getNextPageParam: (lastGroup, allGroup) => {
       const moreGroupExist = lastGroup.length === 20;
