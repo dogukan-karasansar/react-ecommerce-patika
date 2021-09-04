@@ -2,7 +2,7 @@ import axios from "axios";
 
 export const fetchProductList = async ({ pageParam = 0 }) => {
   const { data } = await axios.get(
-    `${process.env.REACT_APP_BASE_ENDPOINT}/products`
+    `${process.env.REACT_APP_BASE_ENDPOINT}/products?category_name=KIYAFET`
   );
   return data;
 };
