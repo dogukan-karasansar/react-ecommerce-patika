@@ -7,10 +7,12 @@ import {
   FormLabel,
   Button,
   Input,
+  Alert,
 } from "@chakra-ui/react";
 
 import { useFormik } from "formik";
 import validationSchema from "./Validations";
+import { fetchRegister } from "../../../Api";
 export default function Register() {
   const formik = useFormik({
     initialValues: {
@@ -21,7 +23,13 @@ export default function Register() {
     },
     validationSchema,
     onSubmit: async (values, bag) => {
-      console.log(values);
+      try {
+        const registerResponse = await fetchRegister(values);
+        console.log(registerResponse);
+      } catch (error) {
+        console.log(error.response.data.errors.email[0]);
+        bag.setErrors({ general: error.response.data.errors.email[0] });
+      }
     },
   });
 
@@ -31,6 +39,11 @@ export default function Register() {
         <Box pt={10}>
           <Box textAlign="center">
             <Heading>Kayıt Ol</Heading>
+          </Box>
+          <Box>
+            {formik.errors.general && (
+              <Alert status="error">{formik.errors.general}</Alert>
+            )}
           </Box>
           <Box my={5} textAlign="left">
             <form onSubmit={formik.handleSubmit}>
@@ -75,7 +88,8 @@ export default function Register() {
                   onBlur={formik.handleBlur}
                   value={formik.values.password_confirmation}
                   isInvalid={
-                    formik.touched.password_confirmation && formik.errors.password_confirmation
+                    formik.touched.password_confirmation &&
+                    formik.errors.password_confirmation
                   }
                 />
               </FormControl>
