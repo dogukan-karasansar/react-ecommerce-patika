@@ -40,6 +40,8 @@ export default function Register() {
                   name="name"
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
+                  value={formik.values.name}
+                  isInvalid={formik.touched.name && formik.errors.name}
                 />
               </FormControl>
               <FormControl>
@@ -49,6 +51,8 @@ export default function Register() {
                   type="email"
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
+                  value={formik.values.email}
+                  isInvalid={formik.touched.email && formik.errors.email}
                 />
               </FormControl>
               <FormControl>
@@ -58,6 +62,8 @@ export default function Register() {
                   type="password"
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
+                  value={formik.values.password}
+                  isInvalid={formik.touched.password && formik.errors.password}
                 />
               </FormControl>
               <FormControl>
@@ -67,6 +73,10 @@ export default function Register() {
                   type="password"
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
+                  value={formik.values.password_confirmation}
+                  isInvalid={
+                    formik.touched.password_confirmation && formik.errors.password_confirmation
+                  }
                 />
               </FormControl>
               <Button mt="4" width="full" type="submit">

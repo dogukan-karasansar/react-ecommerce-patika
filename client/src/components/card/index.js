@@ -8,10 +8,10 @@ export default function Card({ item }) {
   return (
     <Box maxW="sm" borderWidth="1px" borderRadius="lg" overflow="hidden" p="3" m="3">
       <Link to={`/product/${item.id}`}>
-        <Image src={item.image} alt="product" width="500px" height="350px" />
+        <Image style={{borderRadius: '10px'}} src={item.image} alt="product" width="500px" height="350px" />
         <Box p="6">
           <Box d="flex" alignItems="baseline">
-            {item.category}
+            {item.category.category_name}
           </Box>
           <Box marginTop="1" fontWeight="semibold" as="h4" lineHeight="tight">
             {item.title}

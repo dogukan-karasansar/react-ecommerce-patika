@@ -12,6 +12,8 @@ export default function ProductDetail() {
     fetchProduct(product_id)
   );
 
+  console.log(data);
+
   if (isLoading) {
     return <div>Loading...</div>;
   }
