@@ -28,7 +28,7 @@ export default function Register() {
     onSubmit: async (values, bag) => {
       try {
         const registerResponse = await fetchRegister(values);
-        console.log(registerResponse);
+        /* console.log(registerResponse); */
         login(registerResponse);
       } catch (error) {
         console.log(error.response.data.errors.email[0]);

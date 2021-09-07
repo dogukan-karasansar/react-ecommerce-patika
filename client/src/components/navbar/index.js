@@ -6,8 +6,8 @@ import { FaUserAlt, FaRegistered } from "react-icons/fa";
 import { useAuth } from "../../context/AuthContext";
 
 export default function Navbar() {
-  const { loggedIn } = useAuth();
-  console.log(loggedIn);
+  const { loggedIn, user } = useAuth();
+  console.log(user, loggedIn);
   return (
     <nav className={styles.nav}>
       <div className={styles.left}>
